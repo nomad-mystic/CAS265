@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Google Analytics</title>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-54041370-3', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script>
+        $(function() {
+            $('.submit').on('click', function(event) {
+                event.preventDefault();
+
+//                $.post('includes/post_scripts.php', ,function(data) {
+//
+//                });
+            });
+            $('.button').on('click', function() {
+                console.log('this');
+                ga('send', {
+                    hitType: 'event',
+                    eventCategory: 'Videos',
+                    eventAction: 'play',
+                    eventLabel: 'Fall Campaign'
+                });
+            });
+        });
+
+    </script>
+</head>
+<body class="container">
+
+<section class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <p>Hello world!</p>
+        <button class="button">Button</button>
+    </div>
+</section>
+    <section class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <fieldset>
+                <table>
+                    <tr>
+                        <td>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="blue" id="blue" value="">
+                                    Blue
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="red" id="red" value="">
+                                    Red
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="submit" class="btn btn-primary submit">Submit</button>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        </div>
+    </section>
+</body>
+</html>
