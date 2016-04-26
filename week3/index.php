@@ -47,7 +47,7 @@
 						<div class="col-xs-12 col-sm-12">
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
-									<img src="images/plain_weather/flat_white/svg/01.svg" class="img-responsive weather_icon" alt="Image">
+									<img src="images/clientView/clear.png" class="img-responsive weather_icon" alt="Image">
 								</div>
 								<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
 									<p class="city_info"></p>

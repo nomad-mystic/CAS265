@@ -1,10 +1,6 @@
 /**
  * Created by endof on 4/14/2016.
  */
-
-
-
-
 $(function() {
 
     var city_search_submit = $('.city_search_submit');
@@ -40,13 +36,13 @@ $(function() {
             } else {
                 error_div.text('');
                 console.log(data);
-
+                
                 // left column
                 city_info.text(data.current_observation.observation_location.city);
                 weather.text(data.current_observation.weather);
                 degrees_f.html(data.current_observation.temp_f + "&deg;");
                 weather_icon.attr('src', 'images/clientView/' + data.current_observation.icon + '.png');
-                
+
                 // Right column
                 humidity.text('Humidity: ' + data.current_observation.relative_humidity);
                 wind_speed.text('Wind Speed: ' + data.current_observation.wind_mph + ' mph');
