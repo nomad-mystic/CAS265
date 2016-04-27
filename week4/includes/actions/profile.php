@@ -5,11 +5,11 @@
  * Date: 4/23/2016
  * Time: 1:35 AM
  */
+require_once('../db/serverService.php');
 
-require('../db/serverService.php');
+function login($username, $password, $endpoint) {
 
-//function login() {
-    $url = 'https://nomad-mystic.cloudant.com/user_profile/_all_docs?include_docs=true';
+    $url = 'https://' . $endpoint . '.cloudant.com/user_profile/_all_docs?include_docs=true';
 
     $connection = curl_init();
     $headers = array();
@@ -23,14 +23,13 @@ require('../db/serverService.php');
     curl_setopt($connection, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
     curl_setopt($connection, CURLOPT_USERPWD, "$username:$password");
 
-// executing cURL call
+    // executing cURL call
     $results = curl_exec($connection);
-    $json_response = json_encode($results);
+    echo $results;
 
-// Closing the connection
+    // Closing the connection
     curl_close($connection);
-//    return $json_response;
-//}
+}
 // call the login function
-//$json_response = login();
-echo $json_response;
+login($username, $password, $endpoint);
+

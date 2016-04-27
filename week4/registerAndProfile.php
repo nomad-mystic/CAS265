@@ -27,7 +27,7 @@
                         <!--When user signs in populate this area with extra link to user profile-->
                         <li><a href="#" data-toggle="modal" data-target="#register">Sign Up</a></li>
                         <li><a href="#" data-toggle="modal" data-target="#login">Log In</a></li>
-                        <li><a href="#">User Profile</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </nav>
@@ -36,7 +36,7 @@
                     <h1>Education Drive</h1>
                     <p>Sign up to support marginalized impoverished populations with the gift of education.</p>
                     <p>
-                        <a class="btn btn-primary btn-lg">Sign Up</a>
+                        <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#register">Sign Up</a>
                     </p>
                 </div>
             </div><!--jumbotron-->
@@ -45,21 +45,35 @@
 </header>
 <section>
     <div class="row">
-            <main>
-                <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-                    <h1>The gift of Education</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias at culpa debitis delectus eaque
-                        et exercitationem inventore, laboriosam laudantium libero magni nihil non, perspiciatis quaerat
-                        quas repellendus tempore veniam voluptatem.</p>
-                </div>
-            </main>
-            <aside>
-                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <main>
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                <h1>The Gift of Education</h1>
+                <p>This week's project is about connecting to different API accounts and I picked user a registration and login program as
+                my prof of concept. I decided not to use passwords in this program as that adds an additional
+                    level of complexity to the program time doesn't allow. You can use the navigation to sig-up for an account, login for
+                    grabbing your profile information used on sign-up, and can view your profile by hitting the user icon in th navigation.
+                    There is some validation used in the program, but it isn't perfect by any means.</p>
+                <img src="includes/images/homeMain_1.jpg" class="img-responsive pull-right" alt="Image">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aut blanditiis culpa dolorem
+                        ducimus eius, illo laborum odio perspiciatis provident quam quia quis recusandae repellendus sed
+                        sequi totam? Culpa, exercitationem!</p>
 
+            </div>
+        </main>
+        <aside>
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus deserunt ducimus inventore, ipsa
+                        numquam soluta temporibus. Asperiores facere labore laboriosam. Consequuntur culpa deleniti et fuga
+                        hic modi nihil provident voluptate?</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci distinctio eius hic in incidunt
+                        ipsa ipsam iste, iure iusto magnam maxime minus modi nobis possimus quis quod ratione sed,
+                        suscipit.</p>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default">Donate</button>
                 </div>
-            </aside>
-        </div>
-
+            </div><!--end col-->
+        </aside>
+    </div><!--end row-->
 </section>
 
 <!--Modal Areas-->
@@ -111,7 +125,7 @@
     		<div class="modal-content">
     			<div class="modal-header">
     				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    				<h4 class="modal-title">Modal title</h4>
+    				<h4 class="modal-title">Login by Username</h4>
     			</div>
     			<div class="modal-body">
     				<label class="label">Username:</label>
@@ -119,7 +133,7 @@
     			</div>
     			<div class="modal-footer">
     				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-    				<button type="button" class="btn btn-primary modalSignInButton">Log In</button>
+    				<button type="button" class="btn btn-primary loginButton">Log In</button>
     			</div>
     		</div><!-- /.modal-content -->
     	</div><!-- /.modal-dialog -->

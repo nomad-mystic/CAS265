@@ -2,7 +2,20 @@
 
 $modal-background: #101010;
 
-
+main {
+  padding: 0 2%;
+  img {
+    margin: 1%;
+    width: 60%
+  }
+  p {
+    line-height: 2em;
+    font-size: medium;
+  }
+  .loginResultsMessage {
+    padding: 1em;
+  }
+}
 .label {
   color: #999;
   font-size: 1.25em;
@@ -11,6 +24,7 @@ $modal-background: #101010;
 }
 
 .jumbotron {
+  border-radius: 0 !important;
   background: url('../images/uganda.jpg') no-repeat 0 0;
   color: #fff;
   text-shadow: #000 2px 1px;
