@@ -9,7 +9,7 @@
 include_once '../db/serverService.php';
 
 
-//function create_user() {
+function create_user($password, $username, $endpoint) {
     if (isset($_POST['firstName'])) {
 
         $url = 'https://' . $endpoint . '.cloudant.com/user_profile';
@@ -56,6 +56,6 @@ include_once '../db/serverService.php';
         //close connection
         curl_close($connection);
     }
-//}
-//create_user();
+}
+create_user($password, $username, $endpoint);
 
