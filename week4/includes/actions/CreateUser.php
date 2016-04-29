@@ -8,8 +8,8 @@
 
 include_once '../db/serverService.php';
 
-
-function create_user($password, $username, $endpoint) {
+function create_user($password, $username, $endpoint)
+{
     if (isset($_POST['firstName'])) {
 
         $url = 'https://' . $endpoint . '.cloudant.com/user_profile';

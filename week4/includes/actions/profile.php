@@ -5,9 +5,11 @@
  * Date: 4/23/2016
  * Time: 1:35 AM
  */
+
 require_once('../db/serverService.php');
 
-function login($username, $password, $endpoint) {
+function login($username, $password, $endpoint)
+{
 
     $url = 'https://' . $endpoint . '.cloudant.com/user_profile/_all_docs?include_docs=true';
 

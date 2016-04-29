@@ -9,13 +9,14 @@ $(function() {
 
     // modalSignUpButton set up for ajax call to PHP action file
     var modalSignUpButton= $('.modalSignUpButton');
-    modalSignUpButton.on('click', function(evnt) {
+
+    // creates user profile
+    function signUpUser(evnt) {
         var registerForm = $('#registerForm');
         var registerModal = $('#register');
-
+        
         evnt.preventDefault();
-        // modalSignUpButton.attr('onclick','').unbind('click');
-
+        
         // using PHP to POST user information to the cloudant.com database
         $.post('includes/actions/createUser.php', registerForm.serialize(), function(data) {
             registerModal.modal('hide');
@@ -32,13 +33,14 @@ $(function() {
                 mainSectionCol.prepend(loginResultsMessage);
             }
         }); // post
+    } // end signUpUser
+    // Call to click event for user sign up
+    modalSignUpButton.on('click', function(evnt) {
+        signUpUser(evnt);
     }); // end modalSignUpButton
-
-    // using GET action to retrieve json_decoded response from cloudant.com sever
-    var loginButton = $('.loginButton');
-    var storeUserProfile = [];
-    // Click event for login in the user
-    loginButton.on('click', function() {
+    
+    // logs in user
+    function loginUser() {
         // user input
         var usernameValue = $('#profileUsername').val();
 
@@ -78,9 +80,14 @@ $(function() {
                     loginResultsMessage.append(successMessage);
                     loginResultsMessage.addClass('bg-success');
                     mainSectionCol.prepend(loginResultsMessage);
+
+                    //  changing the navigation from login to logout
+                    var loginLogoutButton = $('.loginLogoutButton');
+                    loginLogoutButton.text('Log out');
+                    loginLogoutButton.addClass('no-modal');
                     break;
                 }
-            } // end for
+            } // end for loop
             if (storeUserProfile.length <= 0) {
                 loginModal.modal('hide');
                 // Gives the user information on login status
@@ -90,18 +97,32 @@ $(function() {
                 mainSectionCol.prepend(loginResultsMessage);
             }
         }); // end loginButton get
+    } // end loginUser
+    
+    // using GET action to retrieve json_decoded response from cloudant.com sever
+    var loginButton = $('.loginButton');
+    var storeUserProfile = [];
+
+    // Click event for login in the user
+    loginButton.on('click', function() {
+        loginUser();
     }); // end loginButton
 
     // creates and adds form for logged in user profile
     var userButton = $('.glyphicon-user');
     userButton.on('click', createDOMProfile);
 
+    // string the home page html for populating th DOM after log out
+    var homePageHTML = $('main').html();
+    var saveHomeHTML =[];
+    saveHomeHTML.push(homePageHTML);
+
     // Creates the user profile DOM elements
     function createDOMProfile() {
         if (storeUserProfile.length > 0) {
             var profileDOMSection = $('main');
             var profileOutput = '';
-
+            console.log(storeUserProfile);
             profileOutput += '<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">';
             profileOutput += '<h2>Your Profile</h2>';
             profileOutput += '<form method="post" id="registerForm">';
@@ -134,9 +155,25 @@ $(function() {
         } else {
             var noUserFound = 'Please Reenter a Active Username';
             $('.loginResultsMessage').remove();
-            loginResultsMessage.append(noUserFound);
+            loginResultsMessage.text(noUserFound);
             loginResultsMessage.addClass('bg-danger');
             mainSectionCol.prepend(loginResultsMessage);
+
         }
-    }
+    } // end createDOMProfile()
+
+    //  changing the navigation from login to logout
+    var loginLogoutButton = $('.loginLogoutButton');
+    loginLogoutButton.on('click', function(evnt) {
+        var profileDOMSection = $('main');
+
+        if (loginLogoutButton.hasClass('no-modal')) {
+            evnt.stopPropagation();
+            loginLogoutButton.text('Log In');
+            loginLogoutButton.removeClass('no-modal');
+
+            profileDOMSection.html(saveHomeHTML);
+            storeUserProfile = [];
+        }
+    }); // end loginLogoutButton
 }); // end jQuery
