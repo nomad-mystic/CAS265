@@ -26,7 +26,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!--When user signs in populate this area with extra link to user profile-->
                         <li><a href="#" data-toggle="modal" data-target="#register">Sign Up</a></li>
-                        <li><a href="#" data-toggle="modal" data-target="#login">Log In</a></li>
+                        <li><a href="#" data-toggle="modal" data-target="#login" class="loginLogoutButton">Log In</a></li>
                         <li><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
