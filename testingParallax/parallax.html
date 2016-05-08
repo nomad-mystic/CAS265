@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Parallax</title>
+    <style>
+        .parallax {
+            perspective: 1px;
+            height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto;
+            text-align: center;
+        }
+        .parallax__layer {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+        .parallax__layer--base {
+            transform: translateZ(0);
+        }
+        .parallax__layer--back {
+            transform: translateZ(-1px) scale(2);
+        }
+    </style>
+    <!--scale factor can be calculated with 1 + (translateZ * -1) / perspective-->
+</head>
+<body>
+<div class="parallax">
+    <div class="parallax__layer parallax__layer--back">
+        <p>back</p>
+    </div>
+    <div class="parallax__layer parallax__layer--base">
+        <h1>base</h1>
+    </div>
+</div>
+</body>
+</html>
